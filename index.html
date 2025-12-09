@@ -108,67 +108,272 @@
 
     <!-- AI Genie Section -->
     <section id="genie" class="feature-section section-gradient-2">
+        <!-- Magical Particles Background -->
+        <div class="genie-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
         <div class="container">
             <div class="section-header text-center" data-aos="fade-up">
                 <span class="tagline">Your AI Companion</span>
-                <h2>The <span class="text-gradient">Wedding Genie</span> 🧞‍♂️</h2>
-                <p>Ask anything, get inspired, plan perfectly</p>
+                <h2>The <span class="text-gradient genie-shimmer">Wedding Genie</span>
+                    <span class="genie-lamp">
+                        <i class="fa-solid fa-hat-wizard"></i>
+                    </span>
+                </h2>
+                <p>Ask anything, get inspired, plan perfectly • Powered by Advanced AI</p>
+                <div class="trust-badge">
+                    <i class="fa-solid fa-shield-halved"></i> Your conversations are private & secure
+                </div>
             </div>
 
             <div class="genie-showcase">
+                <!-- Enhanced Chat Demo -->
                 <div class="genie-chat-demo" data-aos="fade-right">
-                    <div class="chat-bubble bot" data-aos="fade-up" data-aos-delay="100">
-                        <div class="bubble-avatar">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <div class="chat-header">
+                        <div class="chat-status">
+                            <span class="status-dot"></span>
+                            <span>Genie is online</span>
                         </div>
-                        <div class="bubble-content">
-                            <p>I can help you choose the perfect theme! Based on your venue, I suggest a "Rustic
-                                Elegance" theme with sage green and dusty pink. 🌿</p>
-                        </div>
-                    </div>
-                    <div class="chat-bubble user" data-aos="fade-up" data-aos-delay="200">
-                        <div class="bubble-content">
-                            <p>That sounds perfect! Can you show me decor ideas?</p>
+                        <div class="conversation-selector">
+                            <button class="conv-btn active" data-conversation="0">Theme Ideas</button>
+                            <button class="conv-btn" data-conversation="1">Budget Help</button>
+                            <button class="conv-btn" data-conversation="2">Timeline</button>
                         </div>
                     </div>
-                    <div class="chat-bubble bot" data-aos="fade-up" data-aos-delay="300">
-                        <div class="bubble-avatar">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                    <div class="chat-messages" id="chatMessages">
+                        <!-- Conversation 0: Theme Ideas -->
+                        <div class="conversation-set active" data-conversation="0">
+                            <div class="chat-bubble bot">
+                                <div class="bubble-avatar">
+                                    <i class="fa-solid fa-wand-magic-sparkles sparkle-icon"></i>
+                                </div>
+                                <div class="bubble-content">
+                                    <p>I can help you choose the perfect theme! Based on your barn venue, I suggest a
+                                        "Rustic Elegance" theme with sage green and dusty pink. 🌿</p>
+                                </div>
+                            </div>
+                            <div class="chat-bubble user">
+                                <div class="bubble-content">
+                                    <p>That sounds perfect! Can you show me decor ideas?</p>
+                                </div>
+                            </div>
+                            <div class="chat-bubble bot">
+                                <div class="bubble-avatar">
+                                    <i class="fa-solid fa-wand-magic-sparkles sparkle-icon"></i>
+                                </div>
+                                <div class="bubble-content">
+                                    <p>Absolutely! Here are 3 mood boards I created just for you... ✨</p>
+                                    <div class="mood-boards">
+                                        <div class="mood-board mood-board-1" title="Click to enlarge"></div>
+                                        <div class="mood-board mood-board-2" title="Click to enlarge"></div>
+                                        <div class="mood-board mood-board-3" title="Click to enlarge"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="bubble-content">
-                            <p>Absolutely! Here are 3 mood boards I created just for you... ✨</p>
-                            <div class="mood-boards">
-                                <div class="mood-board"></div>
-                                <div class="mood-board"></div>
-                                <div class="mood-board"></div>
+
+                        <!-- Conversation 1: Budget Help -->
+                        <div class="conversation-set" data-conversation="1">
+                            <div class="chat-bubble user">
+                                <div class="bubble-content">
+                                    <p>Help me plan a beach wedding for 100 guests under $15,000</p>
+                                </div>
+                            </div>
+                            <div class="chat-bubble bot">
+                                <div class="bubble-avatar">
+                                    <i class="fa-solid fa-wand-magic-sparkles sparkle-icon"></i>
+                                </div>
+                                <div class="bubble-content">
+                                    <p>Great choice! For a $15,000 beach wedding, here's my recommended budget
+                                        breakdown: 💰</p>
+                                    <div class="budget-breakdown">
+                                        <div class="budget-item">
+                                            <span>Venue & Catering</span>
+                                            <strong>$7,500</strong>
+                                        </div>
+                                        <div class="budget-item">
+                                            <span>Photography</span>
+                                            <strong>$2,500</strong>
+                                        </div>
+                                        <div class="budget-item">
+                                            <span>Decor & Flowers</span>
+                                            <strong>$2,000</strong>
+                                        </div>
+                                        <div class="budget-item">
+                                            <span>Other Services</span>
+                                            <strong>$3,000</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conversation 2: Timeline -->
+                        <div class="conversation-set" data-conversation="2">
+                            <div class="chat-bubble user">
+                                <div class="bubble-content">
+                                    <p>What flowers work best for a May garden wedding?</p>
+                                </div>
+                            </div>
+                            <div class="chat-bubble bot">
+                                <div class="bubble-avatar">
+                                    <i class="fa-solid fa-wand-magic-sparkles sparkle-icon"></i>
+                                </div>
+                                <div class="bubble-content">
+                                    <p>May is perfect for garden weddings! These flowers are in peak season: 🌸</p>
+                                    <ul class="flower-list">
+                                        <li><strong>Peonies</strong> - Romantic & lush</li>
+                                        <li><strong>Ranunculus</strong> - Delicate layers</li>
+                                        <li><strong>Garden Roses</strong> - Classic beauty</li>
+                                        <li><strong>Lilacs</strong> - Fragrant & whimsical</li>
+                                    </ul>
+                                    <p>Want me to create a bouquet design? 💐</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Typing Indicator (hidden by default) -->
+                        <div class="chat-bubble bot typing-indicator" style="display: none;">
+                            <div class="bubble-avatar">
+                                <i class="fa-solid fa-wand-magic-sparkles sparkle-icon"></i>
+                            </div>
+                            <div class="bubble-content">
+                                <div class="typing-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Enhanced Features with Flip Cards -->
                 <div class="genie-features" data-aos="fade-left">
-                    <div class="genie-feature-card" data-aos="flip-left" data-aos-delay="100">
-                        <div class="feature-icon">
-                            <i class="fa-solid fa-camera-retro"></i>
+                    <div class="genie-feature-card flip-card" data-aos="flip-left" data-aos-delay="100">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="feature-icon visual-analysis">
+                                    <i class="fa-solid fa-camera-retro"></i>
+                                </div>
+                                <h3>Visual Analysis</h3>
+                                <p>Upload photos and get instant style recommendations</p>
+                                <span class="flip-hint">Click to learn more →</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4>Visual Analysis</h4>
+                                <ul>
+                                    <li>✓ Analyze venue photos</li>
+                                    <li>✓ Color palette extraction</li>
+                                    <li>✓ Style matching AI</li>
+                                    <li>✓ Decor suggestions</li>
+                                </ul>
+                            </div>
                         </div>
-                        <h3>Visual Analysis</h3>
-                        <p>Upload photos and get instant style recommendations</p>
                     </div>
-                    <div class="genie-feature-card" data-aos="flip-left" data-aos-delay="200">
-                        <div class="feature-icon">
-                            <i class="fa-solid fa-palette"></i>
+
+                    <div class="genie-feature-card flip-card" data-aos="flip-left" data-aos-delay="200">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="feature-icon theme-matching">
+                                    <i class="fa-solid fa-palette"></i>
+                                </div>
+                                <h3>Budget Optimizer</h3>
+                                <p>Get 3 alternate vendor options within your price range</p>
+                                <span class="flip-hint">Click to learn more →</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4>Budget Optimizer</h4>
+                                <ul>
+                                    <li>✓ Smart cost allocation</li>
+                                    <li>✓ Vendor comparisons</li>
+                                    <li>✓ Money-saving tips</li>
+                                    <li>✓ Price predictions</li>
+                                </ul>
+                            </div>
                         </div>
-                        <h3>Theme Matching</h3>
-                        <p>Custom color palettes based on your preferences</p>
                     </div>
-                    <div class="genie-feature-card" data-aos="flip-left" data-aos-delay="300">
-                        <div class="feature-icon">
-                            <i class="fa-solid fa-lightbulb"></i>
+
+                    <div class="genie-feature-card flip-card" data-aos="flip-left" data-aos-delay="300">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="feature-icon trend-predictions">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                </div>
+                                <h3>Trend Predictions</h3>
+                                <p>See what's trending for 2026 weddings in your region</p>
+                                <span class="flip-hint">Click to learn more →</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4>Trend Predictions</h4>
+                                <ul>
+                                    <li>✓ Seasonal trends</li>
+                                    <li>✓ Regional insights</li>
+                                    <li>✓ Style forecasts</li>
+                                    <li>✓ Fresh inspiration</li>
+                                </ul>
+                            </div>
                         </div>
-                        <h3>Smart Suggestions</h3>
-                        <p>Personalized ideas for every aspect of your wedding</p>
                     </div>
                 </div>
+            </div>
+
+            <!-- Live Demo Widget -->
+            <div class="genie-demo-widget" data-aos="zoom-in" data-aos-delay="400">
+                <div class="demo-header">
+                    <h3>Try the Genie Now!</h3>
+                    <p>Ask a question or choose from our suggestions</p>
+                </div>
+                <div class="demo-prompts">
+                    <button class="prompt-pill" data-prompt="Help me choose a color scheme for a fall wedding">
+                        <i class="fa-solid fa-leaf"></i> Fall color scheme?
+                    </button>
+                    <button class="prompt-pill" data-prompt="Create a 6-month wedding planning timeline">
+                        <i class="fa-solid fa-calendar-days"></i> 6-month timeline
+                    </button>
+                    <button class="prompt-pill" data-prompt="Suggest unique wedding entertainment ideas">
+                        <i class="fa-solid fa-music"></i> Entertainment ideas
+                    </button>
+                    <button class="prompt-pill" data-prompt="What are the best outdoor venues for summer?">
+                        <i class="fa-solid fa-sun"></i> Summer venues
+                    </button>
+                </div>
+                <div class="demo-input-area">
+                    <input type="text" class="demo-input" placeholder="Or type your own question..." id="genieInput">
+                    <button class="demo-submit" id="genieSubmit">
+                        <i class="fa-solid fa-paper-plane"></i> Ask Genie
+                    </button>
+                </div>
+                <div class="demo-response" id="genieResponse" style="display: none;">
+                    <div class="response-content">
+                        <div class="response-avatar">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <div class="response-text">
+                            <p>Great question! <strong>Download the app</strong> to get personalized AI-powered answers
+                                to all your wedding planning questions. The Genie is ready to help you create your
+                                perfect day! ✨</p>
+                            <a href="#download" class="response-cta">Get Started Free</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="genie-cta" data-aos="fade-up" data-aos-delay="500">
+                <a href="#download" class="btn-primary genie-cta-btn pulse-anim">
+                    <i class="fa-solid fa-download"></i> Try Genie Free
+                </a>
+                <a href="#planning" class="btn-secondary">
+                    See More Examples
+                </a>
             </div>
         </div>
     </section>
