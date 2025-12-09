@@ -383,6 +383,12 @@
 
     <!-- Fundraising Section -->
     <section id="fundraising" class="feature-section section-gradient-1">
+        <!-- Floating Particles -->
+        <div class="fundraising-particles"></div>
+
+        <!-- Confetti Canvas -->
+        <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+
         <div class="container">
             <div class="section-header text-center" data-aos="fade-up">
                 <span class="tagline">Smart Wallet</span>
@@ -391,60 +397,91 @@
             </div>
 
             <div class="fundraising-visual">
-                <div class="wallet-dashboard" data-aos="zoom-in">
+                <div class="wallet-dashboard glass-effect" data-aos="zoom-in">
+                    <!-- Sparkle overlay -->
+                    <div class="sparkle-overlay"></div>
+
                     <div class="balance-display">
                         <span class="label">Total Raised</span>
-                        <h2 class="amount">$12,450<span class="cents">.00</span></h2>
+                        <h2 class="amount" data-target="12450">$0<span class="cents">.00</span></h2>
                         <div class="progress-ring">
                             <svg width="200" height="200">
+                                <defs>
+                                    <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#026BC2;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#FFB3D4;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
                                 <circle cx="100" cy="100" r="90" class="progress-ring-bg"></circle>
-                                <circle cx="100" cy="100" r="90" class="progress-ring-fill"></circle>
+                                <circle cx="100" cy="100" r="90" class="progress-ring-fill"
+                                    stroke="url(#progressGradient)"></circle>
                             </svg>
+
+                            <!-- Milestone Markers -->
+                            <div class="milestone-marker milestone-25" title="25% - First Quarter!">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div class="milestone-marker milestone-50" title="50% - Halfway There!">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div class="milestone-marker milestone-75 milestone-reached" title="75% - Almost There!">
+                                <i class="fa-solid fa-crown"></i>
+                            </div>
+                            <div class="milestone-marker milestone-100" title="100% - Goal Reached!">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+
                             <div class="ring-center">
-                                <span class="percentage">78%</span>
-                                <span class="goal-label">of goal</span>
+                                <span class="percentage" data-percent="78">0%</span>
+                                <span class="goal-label">of $16,000 goal</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="recent-contributions">
-                        <h3>Recent Gifts</h3>
+                        <h3><i class="fa-solid fa-gifts"></i> Recent Gifts</h3>
                         <div class="contribution-item" data-aos="fade-left" data-aos-delay="100">
-                            <div class="contrib-icon">
-                                <i class="fa-solid fa-gift"></i>
+                            <div class="contrib-avatar">
+                                <div class="avatar-circle pink">AM</div>
+                                <div class="pulse-ring"></div>
                             </div>
                             <div class="contrib-info">
                                 <h4>Aunt May</h4>
-                                <span>Just now</span>
+                                <span><i class="fa-regular fa-clock"></i> Just now</span>
                             </div>
                             <div class="contrib-amount">+$200</div>
+                            <div class="heart-burst"></div>
                         </div>
                         <div class="contribution-item" data-aos="fade-left" data-aos-delay="200">
-                            <div class="contrib-icon">
-                                <i class="fa-solid fa-gift"></i>
+                            <div class="contrib-avatar">
+                                <div class="avatar-circle blue">JS</div>
+                                <div class="pulse-ring"></div>
                             </div>
                             <div class="contrib-info">
                                 <h4>John & Sarah</h4>
-                                <span>2 hours ago</span>
+                                <span><i class="fa-regular fa-clock"></i> 2 hours ago</span>
                             </div>
                             <div class="contrib-amount">+$150</div>
+                            <div class="heart-burst"></div>
                         </div>
                         <div class="contribution-item" data-aos="fade-left" data-aos-delay="300">
-                            <div class="contrib-icon">
-                                <i class="fa-solid fa-gift"></i>
+                            <div class="contrib-avatar">
+                                <div class="avatar-circle teal">TS</div>
+                                <div class="pulse-ring"></div>
                             </div>
                             <div class="contrib-info">
                                 <h4>The Smiths</h4>
-                                <span>Yesterday</span>
+                                <span><i class="fa-regular fa-clock"></i> Yesterday</span>
                             </div>
                             <div class="contrib-amount">+$300</div>
+                            <div class="heart-burst"></div>
                         </div>
                     </div>
                 </div>
 
                 <div class="fundraising-features" data-aos="fade-left">
                     <div class="fund-feature" data-aos="fade-up" data-aos-delay="100">
-                        <div class="fund-icon">
+                        <div class="fund-icon bell-icon">
                             <i class="fa-solid fa-bell"></i>
                         </div>
                         <div class="fund-content">
@@ -453,7 +490,7 @@
                         </div>
                     </div>
                     <div class="fund-feature" data-aos="fade-up" data-aos-delay="200">
-                        <div class="fund-icon">
+                        <div class="fund-icon paypal-icon">
                             <i class="fa-brands fa-paypal"></i>
                         </div>
                         <div class="fund-content">
@@ -462,7 +499,7 @@
                         </div>
                     </div>
                     <div class="fund-feature" data-aos="fade-up" data-aos-delay="300">
-                        <div class="fund-icon">
+                        <div class="fund-icon shield-icon">
                             <i class="fa-solid fa-shield-halved"></i>
                         </div>
                         <div class="fund-content">
@@ -486,7 +523,7 @@
 
             <div class="planning-dashboard">
                 <div class="dashboard-left" data-aos="fade-right">
-                    <div class="calendar-widget">
+                    <div class="calendar-widget glass-effect">
                         <div class="calendar-header">
                             <h3>December 2025</h3>
                             <div class="calendar-nav">
@@ -505,28 +542,38 @@
 
                             <div class="day">1</div>
                             <div class="day">2</div>
-                            <div class="day">3</div>
+                            <div class="day has-event venue-event" title="Venue Visit">
+                                3<span class="event-dot"></span>
+                            </div>
                             <div class="day">4</div>
                             <div class="day">5</div>
                             <div class="day">6</div>
                             <div class="day">7</div>
                             <div class="day">8</div>
                             <div class="day">9</div>
-                            <div class="day">10</div>
+                            <div class="day has-event vendor-event" title="Photographer Meeting">
+                                10<span class="event-dot"></span>
+                            </div>
                             <div class="day">11</div>
                             <div class="day">12</div>
                             <div class="day active">13</div>
                             <div class="day">14</div>
-                            <div class="day">15</div>
+                            <div class="day has-event task-event" title="Cake Tasting">
+                                15<span class="event-dot"></span>
+                            </div>
                             <div class="day">16</div>
                             <div class="day">17</div>
                             <div class="day">18</div>
                             <div class="day">19</div>
-                            <div class="day">20</div>
+                            <div class="day has-event vendor-event" title="DJ Consultation">
+                                20<span class="event-dot"></span>
+                            </div>
                             <div class="day">21</div>
                             <div class="day">22</div>
                             <div class="day">23</div>
-                            <div class="day wedding-day">24</div>
+                            <div class="day wedding-day" title="Wedding Day! 💍">
+                                24<i class="fa-solid fa-heart"></i>
+                            </div>
                             <div class="day">25</div>
                             <div class="day">26</div>
                             <div class="day">27</div>
@@ -535,45 +582,77 @@
                 </div>
 
                 <div class="dashboard-right" data-aos="fade-left">
-                    <div class="task-section">
-                        <h3>Today's Tasks</h3>
+                    <div class="task-section glass-effect">
+                        <div class="task-header">
+                            <h3><i class="fa-solid fa-list-check"></i> Today's Tasks</h3>
+                            <div class="task-progress">
+                                <span class="progress-text">1/3 completed</span>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar-fill" style="width: 33%"></div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="task-item completed" data-aos="fade-up" data-aos-delay="100">
                             <div class="task-check">
                                 <i class="fa-solid fa-check"></i>
                             </div>
+                            <div class="task-icon venue-task">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
                             <div class="task-info">
                                 <h4>Call Caterer</h4>
-                                <span>10:00 AM</span>
+                                <span><i class="fa-solid fa-clock"></i> 10:00 AM</span>
                             </div>
                         </div>
                         <div class="task-item active" data-aos="fade-up" data-aos-delay="200">
                             <div class="task-check empty"></div>
+                            <div class="task-icon food-task">
+                                <i class="fa-solid fa-cake-candles"></i>
+                            </div>
                             <div class="task-info">
                                 <h4>Cake Tasting 🎂</h4>
-                                <span>2:00 PM • Sweet Delights</span>
+                                <span><i class="fa-solid fa-clock"></i> 2:00 PM • Sweet Delights</span>
                             </div>
                         </div>
                         <div class="task-item" data-aos="fade-up" data-aos-delay="300">
                             <div class="task-check empty"></div>
+                            <div class="task-icon music-task">
+                                <i class="fa-solid fa-music"></i>
+                            </div>
                             <div class="task-info">
                                 <h4>Finalize Playlist</h4>
-                                <span>5:00 PM</span>
+                                <span><i class="fa-solid fa-clock"></i> 5:00 PM</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="planning-features">
                         <div class="plan-feature" data-aos="zoom-in" data-aos-delay="100">
-                            <i class="fa-solid fa-list-check"></i>
-                            <span>Smart Checklists</span>
+                            <div class="feature-icon-wrapper">
+                                <i class="fa-solid fa-list-check"></i>
+                            </div>
+                            <div class="feature-content">
+                                <span class="feature-title">Smart Checklists</span>
+                                <span class="feature-desc">AI-powered tasks</span>
+                            </div>
                         </div>
                         <div class="plan-feature" data-aos="zoom-in" data-aos-delay="200">
-                            <i class="fa-solid fa-share-nodes"></i>
-                            <span>Collaborate</span>
+                            <div class="feature-icon-wrapper">
+                                <i class="fa-solid fa-share-nodes"></i>
+                            </div>
+                            <div class="feature-content">
+                                <span class="feature-title">Collaborate</span>
+                                <span class="feature-desc">Real-time sync</span>
+                            </div>
                         </div>
                         <div class="plan-feature" data-aos="zoom-in" data-aos-delay="300">
-                            <i class="fa-solid fa-clock"></i>
-                            <span>Timeline View</span>
+                            <div class="feature-icon-wrapper">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="feature-content">
+                                <span class="feature-title">Timeline View</span>
+                                <span class="feature-desc">Visual planning</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -591,74 +670,117 @@
             </div>
 
             <div class="guests-grid">
-                <div class="guest-role-card" data-aos="flip-left" data-aos-delay="100">
-                    <div class="role-badge bridesmaid">Bridesmaid</div>
+                <div class="guest-role-card bridesmaid-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="role-badge bridesmaid"><i class="fa-solid fa-user-tie"></i> Bridesmaid</div>
+                    <div class="status-indicator confirmed">Confirmed</div>
                     <div class="guest-avatar">
                         <div class="avatar-circle">S</div>
                     </div>
                     <h3>Sarah J.</h3>
-                    <p>"Can help with dress fitting"</p>
+                    <p class="guest-quote">"Can help with dress fitting"</p>
                     <div class="guest-actions">
-                        <button class="action-icon"><i class="fa-solid fa-comment"></i></button>
-                        <button class="action-icon"><i class="fa-solid fa-envelope"></i></button>
+                        <button class="action-icon" title="Send Message">
+                            <i class="fa-solid fa-comment"></i>
+                            <span class="tooltip">Message</span>
+                        </button>
+                        <button class="action-icon" title="Send Email">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span class="tooltip">Email</span>
+                        </button>
                     </div>
                 </div>
 
-                <div class="guest-role-card" data-aos="flip-left" data-aos-delay="200">
-                    <div class="role-badge bestman">Best Man</div>
+                <div class="guest-role-card bestman-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="role-badge bestman"><i class="fa-solid fa-crown"></i> Best Man</div>
+                    <div class="status-indicator confirmed">Confirmed</div>
                     <div class="guest-avatar">
                         <div class="avatar-circle">M</div>
                     </div>
                     <h3>Mike T.</h3>
-                    <p>"Bachelor party planner"</p>
+                    <p class="guest-quote">"Bachelor party planner"</p>
                     <div class="guest-actions">
-                        <button class="action-icon"><i class="fa-solid fa-comment"></i></button>
-                        <button class="action-icon"><i class="fa-solid fa-envelope"></i></button>
+                        <button class="action-icon" title="Send Message">
+                            <i class="fa-solid fa-comment"></i>
+                            <span class="tooltip">Message</span>
+                        </button>
+                        <button class="action-icon" title="Send Email">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span class="tooltip">Email</span>
+                        </button>
                     </div>
                 </div>
 
-                <div class="guest-role-card" data-aos="flip-left" data-aos-delay="300">
-                    <div class="role-badge maid">Maid of Honor</div>
+                <div class="guest-role-card maid-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="role-badge maid"><i class="fa-solid fa-heart"></i> Maid of Honor</div>
+                    <div class="status-indicator confirmed">Confirmed</div>
                     <div class="guest-avatar">
                         <div class="avatar-circle">J</div>
                     </div>
                     <h3>Jessica L.</h3>
-                    <p>"Speech writer extraordinaire"</p>
+                    <p class="guest-quote">"Speech writer extraordinaire"</p>
                     <div class="guest-actions">
-                        <button class="action-icon"><i class="fa-solid fa-comment"></i></button>
-                        <button class="action-icon"><i class="fa-solid fa-envelope"></i></button>
+                        <button class="action-icon" title="Send Message">
+                            <i class="fa-solid fa-comment"></i>
+                            <span class="tooltip">Message</span>
+                        </button>
+                        <button class="action-icon" title="Send Email">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span class="tooltip">Email</span>
+                        </button>
                     </div>
                 </div>
 
-                <div class="guest-role-card" data-aos="flip-left" data-aos-delay="400">
-                    <div class="role-badge groomsman">Groomsman</div>
+                <div class="guest-role-card groomsman-card" data-aos="flip-left" data-aos-delay="400">
+                    <div class="role-badge groomsman"><i class="fa-solid fa-users"></i> Groomsman</div>
+                    <div class="status-indicator pending">Pending</div>
                     <div class="guest-avatar">
                         <div class="avatar-circle">D</div>
                     </div>
                     <h3>David K.</h3>
-                    <p>"Ring security expert"</p>
+                    <p class="guest-quote">"Ring security expert"</p>
                     <div class="guest-actions">
-                        <button class="action-icon"><i class="fa-solid fa-comment"></i></button>
-                        <button class="action-icon"><i class="fa-solid fa-envelope"></i></button>
+                        <button class="action-icon" title="Send Message">
+                            <i class="fa-solid fa-comment"></i>
+                            <span class="tooltip">Message</span>
+                        </button>
+                        <button class="action-icon" title="Send Email">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span class="tooltip">Email</span>
+                        </button>
                     </div>
                 </div>
             </div>
 
             <div class="guest-stats" data-aos="fade-up" data-aos-delay="500">
                 <div class="stat-box">
-                    <h3>150</h3>
+                    <div class="stat-icon total-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="stat-counter" data-target="150">0</h3>
                     <p>Total Guests</p>
                 </div>
                 <div class="stat-box">
-                    <h3>120</h3>
+                    <div class="stat-icon confirmed-icon">
+                        <i class="fa-solid fa-check-circle"></i>
+                    </div>
+                    <h3 class="stat-counter" data-target="120">0</h3>
                     <p>Confirmed</p>
+                    <div class="stat-progress">
+                        <div class="stat-progress-fill" style="width: 80%"></div>
+                    </div>
                 </div>
                 <div class="stat-box">
-                    <h3>25</h3>
+                    <div class="stat-icon pending-icon">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <h3 class="stat-counter" data-target="25">0</h3>
                     <p>Pending</p>
                 </div>
                 <div class="stat-box">
-                    <h3>5</h3>
+                    <div class="stat-icon declined-icon">
+                        <i class="fa-solid fa-times-circle"></i>
+                    </div>
+                    <h3 class="stat-counter" data-target="5">0</h3>
                     <p>Declined</p>
                 </div>
             </div>
@@ -674,76 +796,226 @@
                 <p>Discover and book the best professionals</p>
             </div>
 
-            <div class="vendor-categories">
-                <div class="vendor-cat-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="cat-icon">
-                        <i class="fa-solid fa-camera"></i>
-                    </div>
-                    <h3>Photography</h3>
-                    <p>250+ professionals</p>
-                    <div class="cat-rating">
-                        <i class="fa-solid fa-star"></i>
-                        <span>4.9 avg</span>
-                    </div>
+            <!-- Search & Filter Bar -->
+            <div class="vendor-search-container glass-effect" data-aos="fade-up" data-aos-delay="100">
+                <div class="search-input-wrapper">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Search for vendors (e.g. 'Modern Photographer')..."
+                        class="vendor-search-input">
+                </div>
+                <div class="search-filters">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Photography</button>
+                    <button class="filter-btn">Catering</button>
+                    <button class="filter-btn">Music</button>
+                    <button class="filter-btn">Venues</button>
+                    <button class="filter-btn icon-only"><i class="fa-solid fa-sliders"></i></button>
+                </div>
+            </div>
+
+            <!-- Featured Vendors -->
+            <div class="featured-vendors-section">
+                <div class="section-subheader" data-aos="fade-right">
+                    <h3><i class="fa-solid fa-star text-warning"></i> Featured Professionals (Uganda)</h3>
+                    <a href="#" class="view-all-link">View All <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
 
-                <div class="vendor-cat-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="cat-icon">
-                        <i class="fa-solid fa-utensils"></i>
+                <div class="featured-grid">
+                    <!-- Card 1: Photographer -->
+                    <div class="vendor-card featured" data-aos="fade-up" data-aos-delay="200">
+                        <div class="vendor-img-wrapper">
+                            <img src="assets/vendors/uganda_photographer.png" alt="Kampala Captures">
+                            <span class="badge-verified" title="Verified Vendor"><i
+                                    class="fa-solid fa-check-circle"></i> Verified</span>
+                            <span class="badge-featured"><i class="fa-solid fa-crown"></i> Featured</span>
+                            <div class="vendor-actions-overlay">
+                                <button class="overlay-btn" title="Quick View"><i class="fa-solid fa-eye"></i></button>
+                                <button class="overlay-btn" title="Save"><i class="fa-regular fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="vendor-content">
+                            <div class="vendor-header">
+                                <h4>Kampala Captures</h4>
+                                <span class="price-tier" title="Premium">$$$</span>
+                            </div>
+                            <div class="vendor-meta">
+                                <span class="vendor-cat"><i class="fa-solid fa-camera"></i> Photography</span>
+                                <span class="vendor-loc"><i class="fa-solid fa-location-dot"></i> Kampala, Uganda</span>
+                            </div>
+                            <div class="vendor-rating">
+                                <div class="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="rating-text">5.0 (156 reviews)</span>
+                            </div>
+                            <div class="vendor-footer">
+                                <button class="btn-check-availability">Check Availability</button>
+                            </div>
+                        </div>
                     </div>
-                    <h3>Catering</h3>
-                    <p>180+ caterers</p>
-                    <div class="cat-rating">
-                        <i class="fa-solid fa-star"></i>
-                        <span>4.8 avg</span>
+
+                    <!-- Card 2: Catering -->
+                    <div class="vendor-card featured" data-aos="fade-up" data-aos-delay="300">
+                        <div class="vendor-img-wrapper">
+                            <img src="assets/vendors/catering.png" alt="Pearl of Africa Catering">
+                            <span class="badge-verified" title="Verified Vendor"><i
+                                    class="fa-solid fa-check-circle"></i> Verified</span>
+                            <span class="badge-top-rated"><i class="fa-solid fa-award"></i> Top Rated</span>
+                            <div class="vendor-actions-overlay">
+                                <button class="overlay-btn" title="Quick View"><i class="fa-solid fa-eye"></i></button>
+                                <button class="overlay-btn" title="Save"><i class="fa-regular fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="vendor-content">
+                            <div class="vendor-header">
+                                <h4>Pearl Catering</h4>
+                                <span class="price-tier" title="Mid-Range">$$</span>
+                            </div>
+                            <div class="vendor-meta">
+                                <span class="vendor-cat"><i class="fa-solid fa-utensils"></i> Catering</span>
+                                <span class="vendor-loc"><i class="fa-solid fa-location-dot"></i> Entebbe, Uganda</span>
+                            </div>
+                            <div class="vendor-rating">
+                                <div class="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
+                                </div>
+                                <span class="rating-text">4.9 (98 reviews)</span>
+                            </div>
+                            <div class="vendor-footer">
+                                <button class="btn-check-availability">Check Availability</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Music -->
+                    <div class="vendor-card featured" data-aos="fade-up" data-aos-delay="400">
+                        <div class="vendor-img-wrapper">
+                            <img src="assets/vendors/dj.png" alt="DJ AfroBeat">
+                            <span class="badge-verified" title="Verified Vendor"><i
+                                    class="fa-solid fa-check-circle"></i> Verified</span>
+                            <span class="badge-choice"><i class="fa-solid fa-heart"></i> Couples' Choice</span>
+                            <div class="vendor-actions-overlay">
+                                <button class="overlay-btn" title="Quick View"><i class="fa-solid fa-eye"></i></button>
+                                <button class="overlay-btn" title="Save"><i class="fa-regular fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="vendor-content">
+                            <div class="vendor-header">
+                                <h4>DJ AfroBeat</h4>
+                                <span class="price-tier" title="Mid-Range">$$</span>
+                            </div>
+                            <div class="vendor-meta">
+                                <span class="vendor-cat"><i class="fa-solid fa-music"></i> Music & DJ</span>
+                                <span class="vendor-loc"><i class="fa-solid fa-location-dot"></i> Jinja, Uganda</span>
+                            </div>
+                            <div class="vendor-rating">
+                                <div class="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="rating-text">4.9 (240 reviews)</span>
+                            </div>
+                            <div class="vendor-footer">
+                                <button class="btn-check-availability">Check Availability</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="vendor-cat-card" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="cat-icon">
-                        <i class="fa-solid fa-music"></i>
-                    </div>
-                    <h3>Music & DJ</h3>
-                    <p>320+ artists</p>
-                    <div class="cat-rating">
-                        <i class="fa-solid fa-star"></i>
-                        <span>4.9 avg</span>
-                    </div>
+            <!-- Categories Grid -->
+            <div class="vendor-categories-section">
+                <div class="section-subheader" data-aos="fade-right">
+                    <h3>Browse by Category</h3>
                 </div>
+                <div class="vendor-categories">
+                    <div class="vendor-cat-card photo-cat" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="cat-bg-overlay"></div>
+                        <div class="cat-icon">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+                        <h3>Photography</h3>
+                        <p>250+ professionals</p>
+                        <div class="cat-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <span>4.9 avg</span>
+                        </div>
+                    </div>
 
-                <div class="vendor-cat-card" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="cat-icon">
-                        <i class="fa-solid fa-shirt"></i>
+                    <div class="vendor-cat-card catering-cat" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="cat-bg-overlay"></div>
+                        <div class="cat-icon">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <h3>Catering</h3>
+                        <p>180+ caterers</p>
+                        <div class="cat-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <span>4.8 avg</span>
+                        </div>
                     </div>
-                    <h3>Fashion</h3>
-                    <p>150+ designers</p>
-                    <div class="cat-rating">
-                        <i class="fa-solid fa-star"></i>
-                        <span>5.0 avg</span>
-                    </div>
-                </div>
 
-                <div class="vendor-cat-card" data-aos="zoom-in" data-aos-delay="500">
-                    <div class="cat-icon">
-                        <i class="fa-solid fa-cake-candles"></i>
+                    <div class="vendor-cat-card music-cat" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="cat-bg-overlay"></div>
+                        <div class="cat-icon">
+                            <i class="fa-solid fa-music"></i>
+                        </div>
+                        <h3>Music & DJ</h3>
+                        <p>320+ artists</p>
+                        <div class="cat-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <span>4.9 avg</span>
+                        </div>
                     </div>
-                    <h3>Cakes</h3>
-                    <p>90+ bakers</p>
-                    <div class="cat-rating">
-                        <i class="fa-solid fa-star"></i>
-                        <span>4.9 avg</span>
-                    </div>
-                </div>
 
-                <div class="vendor-cat-card" data-aos="zoom-in" data-aos-delay="600">
-                    <div class="cat-icon">
-                        <i class="fa-solid fa-champagne-glasses"></i>
+                    <div class="vendor-cat-card fashion-cat" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="cat-bg-overlay"></div>
+                        <div class="cat-icon">
+                            <i class="fa-solid fa-shirt"></i>
+                        </div>
+                        <h3>Fashion</h3>
+                        <p>150+ designers</p>
+                        <div class="cat-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <span>5.0 avg</span>
+                        </div>
                     </div>
-                    <h3>Venues</h3>
-                    <p>200+ locations</p>
-                    <div class="cat-rating">
-                        <i class="fa-solid fa-star"></i>
-                        <span>4.8 avg</span>
+
+                    <div class="vendor-cat-card cakes-cat" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="cat-bg-overlay"></div>
+                        <div class="cat-icon">
+                            <i class="fa-solid fa-cake-candles"></i>
+                        </div>
+                        <h3>Cakes</h3>
+                        <p>90+ bakers</p>
+                        <div class="cat-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <span>4.9 avg</span>
+                        </div>
+                    </div>
+
+                    <div class="vendor-cat-card venues-cat" data-aos="zoom-in" data-aos-delay="600">
+                        <div class="cat-bg-overlay"></div>
+                        <div class="cat-icon">
+                            <i class="fa-solid fa-champagne-glasses"></i>
+                        </div>
+                        <h3>Venues</h3>
+                        <p>200+ locations</p>
+                        <div class="cat-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <span>4.8 avg</span>
+                        </div>
                     </div>
                 </div>
             </div>
