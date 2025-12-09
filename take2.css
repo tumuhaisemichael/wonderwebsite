@@ -1268,6 +1268,31 @@ h2 {
     background: linear-gradient(135deg, #f0f8ff, #fff0f5);
     border-radius: 20px;
     border-left: 4px solid var(--primary-blue);
+    position: relative;
+}
+
+.response-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: var(--primary-blue);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.response-close:hover {
+    background: #014a8f;
+    transform: rotate(90deg) scale(1.1);
 }
 
 .response-content {
@@ -2255,6 +2280,19 @@ footer {
     .flip-card {
         height: auto;
         min-height: 200px;
+    }
+
+    /* Ensure mobile flip cards have blue background when flipped */
+    .flip-card.flipped .flip-card-front {
+        display: none;
+    }
+
+    .flip-card.flipped .flip-card-back {
+        display: flex;
+        transform: none;
+        position: relative;
+        background: linear-gradient(135deg, var(--primary-blue), #0482d6);
+        color: white;
     }
 
     .flip-card.flipped .flip-card-inner {

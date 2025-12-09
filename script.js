@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const demoInput = document.getElementById('genieInput');
     const demoSubmit = document.getElementById('genieSubmit');
     const demoResponse = document.getElementById('genieResponse');
+    const closeResponseBtn = document.getElementById('closeResponse');
 
     // Click prompt pills to fill input
     promptPills.forEach(pill => {
@@ -96,6 +97,15 @@ document.addEventListener('DOMContentLoaded', () => {
             showDemoResponse();
         }
     });
+
+    // Close response button
+    if (closeResponseBtn) {
+        closeResponseBtn.addEventListener('click', () => {
+            demoResponse.style.display = 'none';
+            demoInput.value = '';
+            demoInput.focus();
+        });
+    }
 
     function showDemoResponse() {
         if (demoInput.value.trim()) {
