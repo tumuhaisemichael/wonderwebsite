@@ -3356,11 +3356,58 @@ footer {
 
 @media (max-width: 968px) {
 
+    /* Mobile Navbar Reset */
+    .navbar,
+    .navbar.scrolled {
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        border-radius: 0;
+        padding: 15px 20px;
+        border: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        box-sizing: border-box;
+        /* Ensure padding doesn't add to width */
+    }
+
+    .nav-container {
+        width: 100%;
+    }
+
     .hero-content,
     .genie-showcase,
     .fundraising-visual,
     .planning-dashboard {
         grid-template-columns: 1fr;
+        width: 100%;
+        /* Ensure container doesn't overflow */
+    }
+
+    .hero {
+        padding-top: 100px;
+        overflow-x: hidden;
+    }
+
+    /* Fix Hero Content Overflow */
+    .hero-text,
+    .hero-visual {
+        min-width: 0;
+        /* Allow flex/grid items to shrink below content size */
+        width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+        word-wrap: break-word;
+        /* Prevent long words from breaking layout */
+    }
+
+    /* Fix Feature Preview Grid */
+    .feature-preview-grid {
+        grid-template-columns: 1fr;
+        /* Force single column */
+        width: 100%;
     }
 
     .nav-links {
@@ -3369,10 +3416,8 @@ footer {
 
     .hamburger {
         display: block;
-    }
-
-    h1 {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
+        color: var(--primary-blue);
     }
 
     h2 {
@@ -3382,7 +3427,6 @@ footer {
     /* Genie Section Mobile */
     .genie-particles {
         display: none;
-        /* Hide particles on mobile for performance */
     }
 
     .conversation-selector {
