@@ -376,6 +376,7 @@ ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    perspective: 1000px;
 }
 
 .preview-card {
@@ -384,10 +385,57 @@ ul {
     border-radius: 20px;
     box-shadow: var(--shadow-sm);
     text-align: center;
-    transition: all 0.4s ease;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+/* Illustration backgrounds for each card */
+.preview-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    border-radius: 20px;
+    z-index: 0;
+}
+
+/* Smart Planning Illustration */
+.preview-card:nth-child(1)::after {
+    background:
+        radial-gradient(circle at 30% 40%, rgba(147, 206, 255, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(155, 89, 182, 0.3) 0%, transparent 50%),
+        linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Fundraising Illustration */
+.preview-card:nth-child(2)::after {
+    background:
+        radial-gradient(circle at 50% 30%, rgba(255, 179, 212, 0.6) 0%, transparent 40%),
+        radial-gradient(circle at 30% 70%, rgba(255, 223, 186, 0.4) 0%, transparent 50%),
+        linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+/* Guest Manager Illustration */
+.preview-card:nth-child(3)::after {
+    background:
+        radial-gradient(circle at 40% 50%, rgba(59, 126, 143, 0.5) 0%, transparent 45%),
+        radial-gradient(circle at 70% 30%, rgba(95, 168, 184, 0.4) 0%, transparent 50%),
+        linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* Vendors Illustration */
+.preview-card:nth-child(4)::after {
+    background:
+        radial-gradient(circle at 60% 40%, rgba(155, 89, 182, 0.5) 0%, transparent 50%),
+        radial-gradient(circle at 30% 70%, rgba(195, 155, 211, 0.4) 0%, transparent 45%),
+        linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
 }
 
 .preview-card::before {
@@ -400,15 +448,27 @@ ul {
     background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.5), transparent);
     transform: rotate(45deg);
     transition: all 0.6s;
+    z-index: 1;
 }
 
 .preview-card:hover::before {
     left: 100%;
 }
 
+.preview-card:hover::after {
+    opacity: 1;
+}
+
 .preview-card:hover {
-    transform: translateY(-10px) scale(1.05);
+    transform: translateY(-10px) rotateY(10deg) rotateX(5deg) scale(1.05);
     box-shadow: var(--shadow-xl);
+}
+
+.preview-card:hover h4,
+.preview-card:hover p {
+    color: white;
+    position: relative;
+    z-index: 2;
 }
 
 .card-icon {
@@ -421,11 +481,14 @@ ul {
     justify-content: center;
     font-size: 2rem;
     color: white;
-    transition: all 0.3s ease;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    z-index: 2;
 }
 
 .preview-card:hover .card-icon {
-    transform: scale(1.1) rotate(10deg);
+    transform: scale(1.2) rotate(360deg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .card-icon.blue {
@@ -1507,7 +1570,25 @@ footer {
     color: rgba(255, 255, 255, 0.6);
 }
 
+/* === Mobile Active State (Scroll-triggered) === */
+.mobile-active::after {
+    opacity: 1 !important;
+}
+
+.mobile-active h4,
+.mobile-active p {
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.mobile-active .card-icon {
+    transform: scale(1.15) rotate(15deg);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
 /* === Responsive === */
+
 @media (max-width: 968px) {
 
     .hero-content,

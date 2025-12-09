@@ -6,6 +6,32 @@ document.addEventListener('DOMContentLoaded', () => {
         once: true,
         offset: 50
     });
+
+    // Mobile scroll-based illustration reveal
+    if (window.innerWidth <= 768) {
+        const previewCards = document.querySelectorAll('.preview-card');
+
+        const revealOnScroll = () => {
+            previewCards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const cardBottom = card.getBoundingClientRect().bottom;
+                const windowHeight = window.innerHeight;
+
+                // If card is in viewport, add active class
+                if (cardTop < windowHeight * 0.75 && cardBottom > windowHeight * 0.25) {
+                    card.classList.add('mobile-active');
+                } else {
+                    card.classList.remove('mobile-active');
+                }
+            });
+        };
+
+        // Initial check
+        revealOnScroll();
+
+        // Check on scroll
+        window.addEventListener('scroll', revealOnScroll);
+    }
 });
 
 // Mobile Menu Toggle
@@ -30,7 +56,7 @@ hamburger.addEventListener('click', () => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
+
         // Close mobile menu if open
         if (window.innerWidth <= 768) {
             navLinks.style.display = 'none';
