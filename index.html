@@ -314,6 +314,112 @@
                 font-weight: 700;
                 letter-spacing: 1px;
             }
+
+            /* Force a reliable mobile menu state despite earlier overrides */
+            .navbar {
+                z-index: 2100 !important;
+            }
+
+            .hamburger {
+                display: block !important;
+                position: relative !important;
+                z-index: 2200 !important;
+                width: 42px !important;
+                height: 42px !important;
+                border-radius: 12px !important;
+                background: rgba(2, 107, 194, 0.08) !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+
+            .nav-links {
+                display: none !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 12px !important;
+                position: fixed !important;
+                top: 82px !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                width: 100vw !important;
+                height: calc(100dvh - 82px) !important;
+                min-height: calc(100dvh - 82px) !important;
+                max-height: none !important;
+                padding: 20px 16px 28px !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+                background: linear-gradient(180deg, #f7f9ff 0%, #eef3ff 55%, #f8f8ff 100%) !important;
+                border: none !important;
+                box-shadow: none !important;
+                z-index: 2000 !important;
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+
+            .nav-links::before {
+                content: "Navigation";
+                font-size: 0.78rem !important;
+                font-weight: 800 !important;
+                letter-spacing: 0.14em !important;
+                text-transform: uppercase !important;
+                color: rgba(26, 26, 26, 0.5) !important;
+                padding: 0 4px 4px !important;
+            }
+
+            .nav-links.open {
+                display: flex !important;
+            }
+
+            .nav-links li {
+                width: 100% !important;
+            }
+
+            .nav-links a {
+                display: block !important;
+                width: 100% !important;
+                color: #1f2937 !important;
+                background: #ffffff !important;
+                border: 1px solid rgba(2, 107, 194, 0.1) !important;
+                border-radius: 14px !important;
+                padding: 14px 16px !important;
+                font-size: 1.08rem !important;
+                font-weight: 700 !important;
+                box-shadow: 0 6px 16px rgba(14, 37, 84, 0.08) !important;
+                transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+            }
+
+            .nav-links a:not(.btn-primary)::after {
+                content: "›";
+                float: right;
+                color: rgba(31, 41, 55, 0.45) !important;
+                font-size: 1.1rem !important;
+                font-weight: 700 !important;
+            }
+
+            .nav-links a:not(.btn-primary):active {
+                transform: translateY(1px) !important;
+            }
+
+            .nav-links a.active-link:not(.btn-primary) {
+                border-color: rgba(2, 107, 194, 0.28) !important;
+                background: rgba(2, 107, 194, 0.08) !important;
+                color: var(--primary-blue) !important;
+            }
+
+            .nav-links a.btn-primary {
+                color: var(--white) !important;
+                background: linear-gradient(135deg, #025cb0, #2b56c6) !important;
+                border: none !important;
+                margin-top: 6px !important;
+                box-shadow: 0 10px 22px rgba(2, 107, 194, 0.35) !important;
+            }
+
+            body.menu-open,
+            html.menu-open {
+                overflow: hidden !important;
+            }
         }
 
         /* Add smooth transitions */
@@ -326,7 +432,7 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation">
         <div class="container nav-container">
             <div class="logo">
                 <img src="wonderlogo.png" alt="WonderWedding Logo" class="logo-img">
@@ -341,9 +447,9 @@
                 <li><a href="#vendors">Vendors</a></li>
                 <li><a href="#download" class="btn-primary">Get App</a></li>
             </ul>
-            <div class="hamburger">
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
                 <i class="fa-solid fa-bars"></i>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -356,13 +462,20 @@
         </div>
         <div class="container hero-content">
             <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
-                <h1>Plan Your <span class="text-gradient">Dream Wedding</span> With Magic</h1>
-                <p>Meet WonderWedding - The all-in-one app that combines AI planning, seamless fundraising, and guest
-                    management into one beautiful experience.</p>
+                <h1>Plan your entire wedding with AI, fundraising, and guest coordination.</h1>
+                <p>WonderWedding brings planning, budgets, RSVPs, and vendor discovery into one elegant experience.</p>
                 <div class="hero-btns">
                     <a href="#download" class="btn-primary pulse-anim">Start Planning Free</a>
-                    <a href="#genie" class="btn-secondary"><i class="fa-solid fa-wand-magic-sparkles"></i> Meet the
-                        Genie</a>
+                    <a href="#genie" class="btn-secondary"><i class="fa-solid fa-wand-magic-sparkles"></i> Meet the Genie</a>
+                </div>
+                <div class="hero-trust">
+                    <span><i class="fa-solid fa-star"></i> Rated 4.9/5 by 10k+ couples</span>
+                    <span><i class="fa-solid fa-hand-holding-heart"></i> $1M+ raised across weddings</span>
+                </div>
+                <div class="hero-feature-list">
+                    <div><i class="fa-solid fa-calendar-check"></i> AI timeline planner</div>
+                    <div><i class="fa-solid fa-users"></i> Guest list & RSVPs</div>
+                    <div><i class="fa-solid fa-store"></i> Curated vendor marketplace</div>
                 </div>
                 <div class="stats">
                     <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
@@ -1132,7 +1245,7 @@
                     <!-- Card 1: Photographer -->
                     <div class="vendor-card featured" data-aos="fade-up" data-aos-delay="200">
                         <div class="vendor-img-wrapper">
-                            <img src="assets/vendors/uganda_photographer.png" alt="Kampala Captures">
+                            <img src="assets/vendors/uganda_photographer.png" alt="Kampala Captures" loading="lazy">
                             <span class="badge-verified" title="Verified Vendor"><i
                                     class="fa-solid fa-check-circle"></i> Verified</span>
                             <span class="badge-featured"><i class="fa-solid fa-crown"></i> Featured</span>
@@ -1169,7 +1282,7 @@
                     <!-- Card 2: Catering -->
                     <div class="vendor-card featured" data-aos="fade-up" data-aos-delay="300">
                         <div class="vendor-img-wrapper">
-                            <img src="assets/vendors/catering.png" alt="Pearl of Africa Catering">
+                            <img src="assets/vendors/catering.png" alt="Pearl of Africa Catering" loading="lazy">
                             <span class="badge-verified" title="Verified Vendor"><i
                                     class="fa-solid fa-check-circle"></i> Verified</span>
                             <span class="badge-top-rated"><i class="fa-solid fa-award"></i> Top Rated</span>
@@ -1206,7 +1319,7 @@
                     <!-- Card 3: Music -->
                     <div class="vendor-card featured" data-aos="fade-up" data-aos-delay="400">
                         <div class="vendor-img-wrapper">
-                            <img src="assets/vendors/dj.png" alt="DJ AfroBeat">
+                            <img src="assets/vendors/dj.png" alt="DJ AfroBeat" loading="lazy">
                             <span class="badge-verified" title="Verified Vendor"><i
                                     class="fa-solid fa-check-circle"></i> Verified</span>
                             <span class="badge-choice"><i class="fa-solid fa-heart"></i> Couples' Choice</span>
@@ -1337,20 +1450,20 @@
                 <h2>Your Wedding, <span class="text-gradient">Simplified.</span></h2>
                 <p>Join thousands of couples creating magic today.</p>
                 <div class="app-buttons">
-                    <button class="store-btn">
+                    <a href="#download" class="store-btn" role="button">
                         <i class="fa-brands fa-apple"></i>
                         <div class="btn-text">
                             <span>Download on the</span>
                             <strong>App Store</strong>
                         </div>
-                    </button>
-                    <button class="store-btn">
+                    </a>
+                    <a href="#download" class="store-btn" role="button">
                         <i class="fa-brands fa-google-play"></i>
                         <div class="btn-text">
                             <span>GET IT ON</span>
                             <strong>Google Play</strong>
                         </div>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
