@@ -1,0 +1,317 @@
+        .logo-img {
+            height: 40px;
+            /* Adjust as needed */
+            width: auto;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* Creates space between logo and text */
+        }
+
+        /* If you want the logo to be clickable and go to home */
+        .logo {
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* Space between logo and text */
+            margin-bottom: 20px;
+            /* Adjust as needed */
+        }
+
+        .footer-logo-img {
+            height: 50px;
+            /* Slightly larger for footer - adjust as needed */
+            width: auto;
+        }
+
+        /* If you want to maintain a consistent logo size across the site */
+        .footer-logo-img {
+            height: 40px;
+            /* Same as navbar logo */
+            width: auto;
+        }
+
+        /* Mobile Fixes Injected */
+        @media (max-width: 968px) {
+
+            /* Navbar Reset */
+            .navbar,
+            .navbar.scrolled {
+                width: calc(100vw - 40px) !important;
+                max-width: calc(100vw - 40px) !important;
+                left: 20px !important;
+                right: 20px !important;
+                top: 20px !important;
+                margin: 0 auto !important;
+                transform: none !important;
+                border-radius: 30px !important;
+                padding: 15px 25px !important;
+                box-sizing: border-box !important;
+                position: fixed !important;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+                backdrop-filter: blur(20px) !important;
+                -webkit-backdrop-filter: blur(20px) !important;
+                background: rgba(255, 255, 255, 0.9) !important;
+                border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            }
+
+            .nav-container {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            /* Grid Resets */
+            .hero-content,
+            .genie-showcase,
+            .fundraising-visual,
+            .planning-dashboard,
+            .feature-preview-grid,
+            .guests-grid,
+            .vendor-categories,
+            .featured-grid,
+            .guest-stats {
+                grid-template-columns: 1fr !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                display: grid !important;
+                margin: 0 !important;
+            }
+
+            /* Flex Resets */
+            .hero-btns,
+            .stats,
+            .conversation-selector,
+            .demo-prompts,
+            .demo-input-area,
+            .genie-cta,
+            .app-buttons,
+            .footer-content {
+                flex-direction: column !important;
+                width: 100% !important;
+            }
+
+            /* Content Width Constraints */
+            .hero-text,
+            .hero-visual,
+            .dashboard-left,
+            .dashboard-right,
+            .wallet-dashboard,
+            .recent-contributions {
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            /* Prevent Horizontal Scroll */
+            body,
+            html {
+                overflow-x: hidden !important;
+                width: 100% !important;
+                max-width: 100vw !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .container {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 20px !important;
+                overflow-x: hidden !important;
+                box-sizing: border-box !important;
+            }
+
+            /* Typography Adjustments */
+            h1 {
+                font-size: 2.5rem !important;
+                word-wrap: break-word !important;
+            }
+
+            h2 {
+                font-size: 2rem !important;
+            }
+
+            /* Specific Element Fixes */
+            .conv-btn,
+            .prompt-pill,
+            .demo-submit,
+            .genie-cta a,
+            .store-btn {
+                width: 100% !important;
+                justify-content: center !important;
+            }
+
+            .chat-messages {
+                padding: 15px !important;
+            }
+
+            .bubble-content {
+                max-width: 90% !important;
+            }
+
+            /* Flip Card Mobile Fix */
+            .flip-card {
+                height: auto !important;
+                min-height: 220px !important;
+            }
+
+            .flip-card.flipped .flip-card-front {
+                display: none !important;
+            }
+
+            .flip-card.flipped .flip-card-back {
+                display: flex !important;
+                transform: none !important;
+            }
+
+            .logo span {
+                position: relative;
+            }
+
+            .logo span::after {
+                content: "WW";
+                display: inline-block;
+            }
+
+            .logo span::before {
+                content: "WonderWedding";
+                display: none;
+            }
+
+            /* OR simpler approach: */
+            .logo span {
+                font-size: 0;
+            }
+
+            .logo span::after {
+                content: "WW";
+                font-size: 1.5rem;
+                font-weight: 700;
+                letter-spacing: 1px;
+            }
+
+            /* Force a reliable mobile menu state despite earlier overrides */
+            .navbar {
+                z-index: 2100 !important;
+            }
+
+            .hamburger {
+                display: block !important;
+                position: relative !important;
+                z-index: 2200 !important;
+                width: 42px !important;
+                height: 42px !important;
+                border-radius: 12px !important;
+                background: rgba(2, 107, 194, 0.08) !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+
+            .nav-links {
+                display: none !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 12px !important;
+                position: fixed !important;
+                top: 82px !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                width: 100vw !important;
+                height: calc(100dvh - 82px) !important;
+                min-height: calc(100dvh - 82px) !important;
+                max-height: none !important;
+                padding: 20px 16px 28px !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+                background: linear-gradient(180deg, #f7f9ff 0%, #eef3ff 55%, #f8f8ff 100%) !important;
+                border: none !important;
+                box-shadow: none !important;
+                z-index: 2000 !important;
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+
+            .nav-links::before {
+                content: "Navigation";
+                font-size: 0.78rem !important;
+                font-weight: 800 !important;
+                letter-spacing: 0.14em !important;
+                text-transform: uppercase !important;
+                color: rgba(26, 26, 26, 0.5) !important;
+                padding: 0 4px 4px !important;
+            }
+
+            .nav-links.open {
+                display: flex !important;
+            }
+
+            .nav-links li {
+                width: 100% !important;
+            }
+
+            .nav-links a {
+                display: block !important;
+                width: 100% !important;
+                color: #1f2937 !important;
+                background: #ffffff !important;
+                border: 1px solid rgba(2, 107, 194, 0.1) !important;
+                border-radius: 14px !important;
+                padding: 14px 16px !important;
+                font-size: 1.08rem !important;
+                font-weight: 700 !important;
+                box-shadow: 0 6px 16px rgba(14, 37, 84, 0.08) !important;
+                transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+            }
+
+            .nav-links a:not(.btn-primary)::after {
+                content: "›";
+                float: right;
+                color: rgba(31, 41, 55, 0.45) !important;
+                font-size: 1.1rem !important;
+                font-weight: 700 !important;
+            }
+
+            .nav-links a:not(.btn-primary):active {
+                transform: translateY(1px) !important;
+            }
+
+            .nav-links a.active-link:not(.btn-primary) {
+                border-color: rgba(2, 107, 194, 0.28) !important;
+                background: rgba(2, 107, 194, 0.08) !important;
+                color: var(--primary-blue) !important;
+            }
+
+            .nav-links a.btn-primary {
+                color: var(--white) !important;
+                background: linear-gradient(135deg, #025cb0, #2b56c6) !important;
+                border: none !important;
+                margin-top: 6px !important;
+                box-shadow: 0 10px 22px rgba(2, 107, 194, 0.35) !important;
+            }
+
+            body.menu-open,
+            html.menu-open {
+                overflow: hidden !important;
+            }
+        }
+
+        /* Add smooth transitions */
+        .navbar {
+            transition: all 0.4s ease !important;
+        }
